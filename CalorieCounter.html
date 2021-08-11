@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Caloriecounter.css">
+    
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="app">
+      <h3><b>C</b>alorie <b>C</b>ounter</h3>
+        <div class="entry header">
+          <div class="long">Food Item</div>
+          <div class="short">Calories</div>
+          <div class="short">Fat</div>
+          <div class="short">Carbs</div>
+          <div class="short">Protein</div>
+        </div>
+        <div class="entry" v-for="entry in entries" transition="fade">
+          <input type="text" name="description-{{ entry.id }}" v-model="entry.description" class="long" v-on:keyup.enter="saveEntry">
+          <input type="number" name="calories-{{ entry.id }}" v-model="entry.calories" class="short" v-on:keyup.enter="saveEntry">
+          <input type="number" name="fat-{{ entry.id }}" v-model="entry.fat" class="short" v-on:keyup.enter="saveEntry">
+          <input type="number" name="carbs-{{ entry.id }}" v-model="entry.carbs" class="short" v-on:keyup.enter="saveEntry">
+          <input type="number" name="protein-{{ entry.id }}" v-model="entry.protein" class="short" v-on:keyup.enter="saveEntry">
+          <button class="material-delete" v-on:click="removeEntry($index)">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+        <div class="totals">
+          <div class="long">Totals:</div>
+          <div class="short">{{ totalCalories }}</div>
+          <div class="short">{{ totalFat }}</div>
+          <div class="short">{{ totalCarbs }}</div>
+          <div class="short">{{ totalProtein }}</div>
+        </div>
+        <div class="new">
+          <input type="text" v-model="newDescription" v-on:keyup.enter="addEntry" class="long" placeholder="Description">
+          <input type="number" v-model="newCalories" v-on:keyup.enter="addEntry" class="short" placeholder="Calories">
+          <input type="number" v-model="newFat" v-on:keyup.enter="addEntry" class="short" placeholder="Fat">
+          <input type="number" v-model="newCarbs" v-on:keyup.enter="addEntry" class="short" placeholder="Carbs">
+          <input type="number" v-model="newProtein" v-on:keyup.enter="addEntry" class="short" placeholder="Protein">
+          <button class="material-button" v-on:click="addEntry()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+      <script>
+          var myapp = new Vue({
+  el: '#app',
+  data: {
+    newDescription: '',
+    newCalories: '',
+    newFat: '',
+    newCarbs: '',
+    newProtein: '',
+    totalCalories: '',
+    totalFat: '',
+    totalCarbs: '',
+    totalProtein: '',
+    entries: [
+      
+    ]
+  },
+  methods: {
+    addEntry: function () {
+      var description = this.newDescription.trim()
+      var calories = parseInt(this.newCalories.trim()) || 0
+      var fat = parseInt(this.newFat.trim()) || 0
+      var carbs = parseInt(this.newCarbs.trim()) || 0
+      var protein = parseInt(this.newProtein.trim()) || 0
+      if (description && calories) {
+        this.entries.push({ description: description, calories: calories, fat: fat, carbs: carbs, protein: protein })
+        this.newDescription = ''
+        this.newCalories = ''
+        this.newFat = ''
+        this.newCarbs = ''
+        this.newProtein = ''
+        calculateTotals(this)
+      } else {
+        alert("You need at least a description and calories!")
+      }
+    },
+    removeEntry: function (index) {
+      this.entries.splice(index, 1)
+      calculateTotals(this)
+    },
+    saveEntry: function() {
+      calculateTotals(this)
+    }
+  }
+})
+
+function calculateTotals(app) {
+  app.totalCalories = parseTotals(app.entries, 'calories')
+  app.totalFat = parseTotals(app.entries, 'fat')
+  app.totalCarbs = parseTotals(app.entries, 'carbs')
+  app.totalProtein = parseTotals(app.entries, 'protein')
+}
+
+calculateTotals(myapp)
+
+function parseTotals(array, element) {
+  var sum = 0
+  array.forEach(function(entry) {
+    sum = sum + parseInt(entry[element])
+  }, sum, element)
+  return sum
+}
+      </script>
+      
+</body>
+
+</html>

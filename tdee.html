@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+    <style>
+       
+        * {
+  font-family: Quicksand;
+  font-size: 16px;
+  color: #333;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  padding: 0;
+  border: 0;
+  background: linear-gradient(to bottom right,  #e671e6, #eef2f3);
+}
+
+.form {
+  background-color: #fff;
+  height: 240px;
+  width: 450px;
+  border-radius: 20px;
+  margin: 20px auto 20px auto;
+  display: block;
+  border: solid 1px #289df6;
+  
+  box-shadow: 0 0 40px 0 #ddd;
+}
+
+.form:hover {
+  box-shadow: 0 0 60px 0 #ccc;
+  transition: .4s;
+  transform: scale(1.02);
+}
+
+.row-one {
+  padding: 20px;
+}
+
+.row-two {
+  padding: 20px;
+}
+
+.text-input {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #dbeffe;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.text-input:last-child {
+  margin-bottom: 35px;
+}
+
+.text-input:hover {
+  background-color: #cbe7fd;
+}
+
+#submit {
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  width: 140px;
+  background-color: #289df6;
+  color: #fff;
+  margin: auto;
+  display: block;
+  outline: none;
+  cursor: pointer;
+}
+
+#submit:hover{
+  background-color: #0a8ef2;
+}
+
+.text {
+  display: inline-block;
+  margin: 5px 20px 5px 8px;;
+}
+
+.row-one {
+  padding: 30px 20px 15px 20px;
+}
+.row-two {
+  padding: 15px 20px 30px 20px;
+}
+
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #dbeffe;
+  border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #cbe7fd;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #289df6;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+  color: #289df6;
+  padding-top: 15px;
+  display: block;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 300;
+  text-align: center;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  padding: 15px;
+}
+
+h3 b {
+  font-size: 32px;
+  font-weight: 300;
+  color: #289df6;
+}
+h5{
+    padding-left: 20em;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.learn-more{
+    margin-left: 37em;
+}
+
+    </style>  
+    </head>
+      <body>
+        <h3><b>T</b>otal <b>D</b>aily <b>E</b>nergy Expenditure</h3>
+        <h5>Use the TDEE calculator to learn your Total Daily Energy Expenditure, a measure of how many calories you burn per day.</h5>
+      <form class="form" id="form" onsubmit="return validateForm()">
+      <div class="row-one">
+        <input type="text" class="text-input" id="age" autocomplete="off" required/><p class="text">Age</p>
+        <label class="container">
+        <input type="radio" name="radio" id="f"><p class="text">Female</p>
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">
+        <input type="radio" name="radio" id="m"><p class="text">Male</p>
+          <span class="checkmark"></span>
+        </label>
+        
+        </div>
+      
+      <div class="row-two">
+        <input type="text" class="text-input" id="height" autocomplete="off" required><p class="text">Height (cm)</p>
+        <input type="text" class="text-input" id="weight" autocomplete="off" required><p class="text">Weight (kg)</p>
+        </div>
+
+      <label class="container">
+        <input type="radio" name="radio2" id="s"><p class="text">Sedantary</p>
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">
+        <input type="radio" name="radio2" id="l"><p class="text">Light</p>
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            <input type="radio" name="radio2" id="M"><p class="text">Moderate</p>
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+            <input type="radio" name="radio2" id="a"><p class="text">Active</p>
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+                <input type="radio" name="radio2" id="va"><p class="text">Very Active</p>
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    <input type="radio" name="radio2" id="ea"><p class="text">Extra Active</p>
+                      <span class="checkmark"></span>
+                    </label>
+      <button type="button" id="submit">Submit</button>
+      </form>
+      <button class="learn-more" onclick="location.href = 'https://www.nhlbi.nih.gov/heart-truth/maintain-a-healthy-weight';">Learn More on maintaining better health</button>
+      <script>
+          var age = document.getElementById("age");
+var height = document.getElementById("height");
+var weight = document.getElementById("weight");
+var male = document.getElementById("m");
+var female = document.getElementById("f");
+var form = document.getElementById("form");
+var Sedantary = document.getElementById("s");
+var Light = document.getElementById("l");
+var Morderate = document.getElementById("M");
+var Active = document.getElementById("a");
+var VeryActive = document.getElementById("va");
+var ExtraActive = document.getElementById("ea");
+function validateForm(){
+  if(age.value=='' || height.value=='' || weight.value=='' || (male.checked==false && female.checked==false) ||((Sedantary.checked==false && Light.checked==false && Morderate.checked==false && Active.checked==false && VeryActive.checked==false && ExtraActive.checked==false))){
+    alert("All fields are required!");
+    document.getElementById("submit").removeEventListener("click", countBmi);
+  }else{
+    countTdee();
+  }
+}
+document.getElementById("submit").addEventListener("click", validateForm);
+
+function countTdee(){
+  var p = [age.value, height.value, weight.value];
+  if(male.checked){
+    p.push("male");
+  }else if(female.checked){
+    p.push("female");
+  }
+  form.reset();
+  var tdee = 1;
+  if(Sedantary.checked)
+  {
+      p.push("sedantary");
+      tdee=tdee*1.2;
+  }
+  else if(Light.checked)
+  {
+      p.push("light");
+      tdee=tdee*1.375;
+  }
+  else if(Morderate.checked)
+  {
+      p.push("morderate");
+      tdee=tdee*1.55;
+  }
+  else if(Active.checked)
+  {
+      p.push("active");
+      tdee=tdee*1.6;
+  }
+  else if(VeryActive.checked)
+  {
+      p.push("very active");
+      tdee=tdee*1.725
+  }
+  else if(ExtraActive.checked)
+  {
+      p.push("extra active");
+      tdee=tdee*1.9
+  }
+  form.reset();
+  var bmr = Number(p[2])/(Number(p[1])/100*Number(p[1])/100);
+  if(p[3]=="male")
+  {
+   bmr = 66 + (13.7 * Number(p[2])) + (5 * (Number(p[1]))) - (6.8 * (Number(p[0])));
+  }
+  else{
+    bmr = 655 + (9.6 * (Number(p[2]))) + (1.8 *(Number(p[1]))) - (4.7 * (Number(p[0])));
+  }
+  
+  tdee = tdee*bmr;
+  var h1 = document.createElement("h1");
+  var h2 = document.createElement("h2");
+
+  
+  var b = document.createTextNode('TDEE (your maintainance calories): ');
+  var r = document.createTextNode(parseFloat(tdee).toFixed(2));
+  
+  
+  h2.appendChild(b);
+  h2.appendChild(r);
+  
+  document.body.appendChild(h1);
+  document.body.appendChild(h2);
+  document.getElementById("submit").removeEventListener("click", countTdee);
+  document.getElementById("submit").removeEventListener("click", validateForm);
+}
+document.getElementById("submit").addEventListener("click", countTdee);
+      </script>
+      </body>
+</html>
