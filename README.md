@@ -4,10 +4,11 @@
 <br />
 <p align="center">
   
-    <img src="https://i.ibb.co/4TJqHhz/1153647083.png" alt="1153647083" border="0">
+    
   
 
   <h3 align="center">HEALTHSTATS</h3>
+  [img]https://i.ibb.co/4TJqHhz/1153647083.png[/img]
 
   <p align="center">
     An awesome Health stats calculator to support your healthy lifestyle!
@@ -27,25 +28,6 @@
   </p>
 </p>
 
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-    </li>
-    
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
 
 
 ### Built With
