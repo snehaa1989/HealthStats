@@ -8,7 +8,7 @@
   
 
   <h3 align="center">HEALTHSTATS</h3>
-  [img]https://i.ibb.co/4TJqHhz/1153647083.png[/img]
+  <img src="https://i.ibb.co/4TJqHhz/1153647083.png" alt="1153647083" border="0">
 
   <p align="center">
     An awesome Health stats calculator to support your healthy lifestyle!
